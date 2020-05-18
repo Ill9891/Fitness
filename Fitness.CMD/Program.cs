@@ -17,29 +17,11 @@ namespace Fitness.CMD
             {
                 Console.WriteLine("Enter a gender:");
                 var gender = Console.ReadLine();
+                var birthDate = ParseDateTime();
+                var weight = ParseDouble("weight");
+                var height = ParseDouble("height");
 
-                DateTime birthDate;
-                double weight;
-                double height;
-
-                while (true)
-                {
-                    Console.WriteLine("Enter a date of birth (dd.MM.yyyy):");
-                    if (DateTime.TryParse(Console.ReadLine(), out birthDate))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong date of birth format.");
-                    }
-                }
-
-                //Console.WriteLine("Enter a weight:");
-                //var weight = double.Parse(Console.ReadLine());
-
-                //Console.WriteLine("Enter a height:");
-                //var height = double.Parse(Console.ReadLine());
+            
 
                 userController.SetNewUserData(gender, birthDate, weight, height);
             }
@@ -48,7 +30,26 @@ namespace Fitness.CMD
             Console.ReadLine();
         }
 
-        private static double ParseDouble<T>(string name)
+        private static DateTime ParseDateTime()
+        {
+            DateTime birthDate;
+            while (true)
+            {
+                Console.WriteLine("Enter a date of birth (dd.MM.yyyy):");
+                if (DateTime.TryParse(Console.ReadLine(), out birthDate))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong date of birth format.");
+                }
+            }
+
+            return birthDate;
+        }
+
+        private static double ParseDouble(string name)
         {
             while (true)
             {

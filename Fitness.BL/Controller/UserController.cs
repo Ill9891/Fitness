@@ -40,7 +40,6 @@ namespace Fitness.BL.Controller
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
                 IsNewUser = true;
-                Save();
             }
         }
 
@@ -75,7 +74,7 @@ namespace Fitness.BL.Controller
             CurrentUser.BirthDate = birthDate;
             CurrentUser.Weight = weight;
             CurrentUser.Height = height;
-
+            Save();
         }
 
         /// <summary>
