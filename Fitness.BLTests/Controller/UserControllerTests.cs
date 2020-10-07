@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Fitness.BL.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fitness.BL.Controller.Tests
 {
@@ -31,7 +26,7 @@ namespace Fitness.BL.Controller.Tests
             Assert.AreEqual(birthDate, controller2.CurrentUser.BirthDate);
             Assert.AreEqual(weight, controller2.CurrentUser.Weight);
             Assert.AreEqual(height, controller2.CurrentUser.Height);
-            Assert.AreEqual(gender, controller2.CurrentUser.Gender);
+            Assert.AreEqual(gender, controller2.CurrentUser.Gender.Name);
         }
 
         [TestMethod()]
